@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Csdn CodeCopy
-// @namespace    https://ooxsoo.github.io/TampermonkeyTool
+// @namespace    https://github.com/ooxsoo/TampermonkeyTool
 // @version      0.2
 // @description  csdn code copy
 // @author       You
