@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         Csdn CodeCopy
 // @namespace    https://github.com/ooxsoo/TampermonkeyTool
-// @version      0.2
+// @version      0.3
 // @description  csdn code copy
-// @author       You
+// @author       ooxsoo
 // @match        https://blog.csdn.net/*/article/details/*
 // @match        https://*.blog.csdn.net/article/details/*
 // @icon         https://www.google.com/s2/favicons?domain=csdn.net
