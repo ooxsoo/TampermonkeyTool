@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Csdn CodeCopy
 // @namespace    https://github.com/ooxsoo/TampermonkeyTool
-// @version      0.3
+// @version      0.4
 // @description  csdn code copy
 // @author       ooxsoo
 // @match        https://blog.csdn.net/*/article/details/*
@@ -83,5 +83,19 @@
   } else {
     // no head yet, stick it whereever
     document.documentElement.appendChild(node);
+  }
+
+  // 红包雨
+  var redpack = document.getElementById("csdn-redpack");
+  if (redpack) {
+    document.removeChild(redpack);
+  }
+
+  // 头部广告
+  var toolbar_advert = document.getElementsByClassName("toolbar-advert");
+  if (toolbar_advert != null) {
+    for (let i = 0; i < toolbar_advert.length; i++) {
+      toolbar_advert[i].parentElement.removeChild(toolbar_advert[i]);
+    }
   }
 })();
