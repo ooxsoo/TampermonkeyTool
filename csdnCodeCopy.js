@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Csdn CodeCopy
 // @namespace    https://github.com/ooxsoo/TampermonkeyTool
-// @version      0.5.2
+// @version      0.5.3
 // @description  csdn code copy
 // @author       ooxsoo
 // @match        https://*.csdn.net/*
@@ -90,22 +90,29 @@
     document.removeChild(redpack);
   }
 
-  let scriptsInBody = document.body.getElementsByTagName("script");
-  for (let i = 0; i < scriptsInBody.length; i++) {
-    let node = scriptsInBody[i];
-    let src = node.getAttribute("src");
-    if (src == "https://g.csdnimg.cn/common/csdn-toolbar/csdn-toolbar.js") {
-      document.body.removeChild(node);
-      break;
-    }
-  }
+  // let scriptsInBody = document.body.getElementsByTagName("script");
+  // for (let i = 0; i < scriptsInBody.length; i++) {
+  //   let node = scriptsInBody[i];
+  //   let src = node.getAttribute("src");
+  //   if (src == "https://g.csdnimg.cn/common/csdn-toolbar/csdn-toolbar.js") {
+  //     document.body.removeChild(node);
+  //     break;
+  //   }
+  // }
 
   // 头部广告
-  var toolbar_advert = document.getElementsByClassName("toolbar-advert");
-  if (toolbar_advert != null) {
-    for (let i = 0; i < toolbar_advert.length; i++) {
-      toolbar_advert[i].parentElement.removeChild(toolbar_advert[i]);
+  let removeAdInterval = setInterval(() => {
+    clearInterval(removeAdInterval);
+    var toolbar_advert = document.getElementsByClassName("toolbar-advert");
+    if (toolbar_advert != null) {
+      for (let i = 0; i < toolbar_advert.length; i++) {
+        toolbar_advert[i].parentElement.removeChild(toolbar_advert[i]);
+      }
     }
+  }, 200);
+
+  if ($ != null) {
+    $(document).trigger = () => {};
+    $(document).prepend = () => {};
   }
-  if ($) $(document).trigger = () => {};
 })();
