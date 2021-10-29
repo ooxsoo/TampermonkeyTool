@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Csdn CodeCopy
 // @namespace    https://github.com/ooxsoo/TampermonkeyTool
-// @version      0.5.1
+// @version      0.5.2
 // @description  csdn code copy
 // @author       ooxsoo
 // @match        https://*.csdn.net/*
@@ -107,6 +107,5 @@
       toolbar_advert[i].parentElement.removeChild(toolbar_advert[i]);
     }
   }
-
-  $(document).trigger = () => {};
+  if ($) $(document).trigger = () => {};
 })();
