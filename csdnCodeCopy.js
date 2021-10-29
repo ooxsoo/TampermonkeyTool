@@ -1,11 +1,10 @@
 // ==UserScript==
 // @name         Csdn CodeCopy
 // @namespace    https://github.com/ooxsoo/TampermonkeyTool
-// @version      0.5
+// @version      0.5.1
 // @description  csdn code copy
 // @author       ooxsoo
-// @match        https://blog.csdn.net/*/article/details/*
-// @match        https://*.blog.csdn.net/article/details/*
+// @match        https://*.csdn.net/*
 // @icon         https://www.google.com/s2/favicons?domain=csdn.net
 // @grant        none
 // @run-at       document-idle
@@ -108,4 +107,6 @@
       toolbar_advert[i].parentElement.removeChild(toolbar_advert[i]);
     }
   }
+
+  $(document).trigger = () => {};
 })();
