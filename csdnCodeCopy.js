@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Csdn CodeCopy
 // @namespace    https://github.com/ooxsoo/TampermonkeyTool
-// @version      0.5.4
+// @version      0.5.5
 // @description  csdn code copy
 // @author       ooxsoo
 // @match        https://*.csdn.net/*
@@ -101,18 +101,26 @@
   // }
 
   // 头部广告
-  let removeAdInterval = setInterval(() => {
-    clearInterval(removeAdInterval);
-    var toolbar_advert = document.getElementsByClassName("toolbar-advert");
-    if (toolbar_advert != null) {
-      for (let i = 0; i < toolbar_advert.length; i++) {
-        toolbar_advert[i].parentElement.removeChild(toolbar_advert[i]);
-      }
-    }
+  document.body.onload = () => {
+    console.log("document load");
 
-    if (typeof $ != "undefined" && $ != null) {
-      $(document).trigger = () => {};
-      $(document).prepend = () => {};
+    let removeAdInterval = setInterval(() => {
+      clearInterval(removeAdInterval);
+      var toolbar_advert = document.getElementsByClassName("toolbar-advert");
+      if (toolbar_advert != null) {
+        for (let i = 0; i < toolbar_advert.length; i++) {
+          toolbar_advert[i].parentElement.removeChild(toolbar_advert[i]);
+        }
+      }
+
+      if (typeof $ != "undefined" && $ != null) {
+        $(document).trigger = () => {};
+        $(document).prepend = () => {};
+      }
+    }, 200);
+
+    for (let index = 0; index < removeAdInterval; index++) {
+      clearInterval(index);
     }
-  }, 200);
+  };
 })();
