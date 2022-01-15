@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Csdn CodeCopy
 // @namespace    https://github.com/ooxsoo/TampermonkeyTool
-// @version      0.5.5
+// @version      0.6.0
 // @description  csdn code copy
 // @author       ooxsoo
 // @match        https://*.csdn.net/*
@@ -121,6 +121,16 @@
 
     for (let index = 0; index < removeAdInterval; index++) {
       clearInterval(index);
+    }
+  };
+  
+  // 去除关注博主可看全文
+  let article_content = document.getElementById("article_content");
+  article_content.removeAttribute("style");
+  var hide_art_box = document.getElementsByClassName("hide-article-box");
+  if (hide_art_box != null) {
+    for (let i = 0; i < hide_art_box.length; i++) {
+      hide_art_box[i].parentElement.removeChild(hide_art_box[i]);
     }
   };
 })();
